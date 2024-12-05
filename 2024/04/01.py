@@ -30,25 +30,23 @@ i = 0
 while (i < len(matrix)):
     j = 0
     while (j < len(matrix[i])):
-        r += isXmas(findWord(i, j, 0, 1, 4))        
+        
+        r += isXmas(findWord(i, j, 0, 1, 4))
+        r += isXmas(findWord(i, j, 0, -1, 4))
+        
         r += isXmas(findWord(i, j, 1, 0, 4))
+        r += isXmas(findWord(i, j, -1, 0, 4))
+
         r += isXmas(findWord(i, j, 1, 1, 4))
+        r += isXmas(findWord(i, j, -1, 1, 4))
+
         r += isXmas(findWord(i, j, 1, -1, 4))
+        r += isXmas(findWord(i, j, -1, -1, 4))
         j += 1
     i += 1
 
-i = len(matrix) - 1
-while (i >= 0):
-    j = len(matrix[i]) - 1
-    while (j >= 0):
-        r += isXmas(findWord(i, j, 0, -1, 4))
-        r += isXmas(findWord(i, j, -1, 0, 4))
-        r += isXmas(findWord(i, j, -1, 1, 4))
-        r += isXmas(findWord(i, j, -1, -1, 4))
-        j -= 1
-    i -= 1
-
 print(r)
 
+#2718
 
         
