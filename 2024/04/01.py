@@ -45,8 +45,4 @@ while (i < len(matrix)):
         j += 1
     i += 1
 
-print(r)
-
-#2718
-
-        
+print(r)        
