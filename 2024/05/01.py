@@ -33,6 +33,3 @@ for sequence in sequences:
         r += sequence[(len(sequence) // 2)]
 
 print(r)
-             
-
-

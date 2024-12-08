@@ -1,7 +1,7 @@
 column1 = list()
 column2 = list()
 sequences = list()
-with open("2024\\05\\files\\01.txt") as f:
+with open("2024\\05\\files\\02.txt") as f:
     while(True):
         line = f.readline()
         if (len(line) <= 0):
@@ -21,18 +21,29 @@ with open("2024\\05\\files\\01.txt") as f:
             sequences.append(sequence)
             continue
 
-r = 0
+results = list()
 for sequence in sequences:
-    for c1, c2 in zip(column1, column2):
-         if (c2 not in sequence or c1 not in sequence):
-             continue
-         
-         if(sequence.index(c2) < sequence.index(c1)): 
-             break
-    else:
-        r += sequence[(len(sequence) // 2)]
+    i = 0
+    incorrect = False
+    while i < len(sequence):
+        for c1, c2 in zip(column1, column2):
+            if (i+1 >= len(sequence)):
+                continue
+
+            if (sequence[i+1] == c1 and sequence[i] == c2):
+                incorrect = True
+                temp = sequence[i]
+                sequence[i] = sequence[i+1]
+                sequence[i+1] = temp
+                i=0
+                break
+        i += 1
+
+    if (incorrect):
+        results.append(sequence)
+
+r = 0
+for result in results:
+    r += result[(len(result) // 2)]
 
 print(r)
-             
-
-
